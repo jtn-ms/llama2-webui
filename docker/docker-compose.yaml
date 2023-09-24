@@ -9,7 +9,7 @@ services:
     environment:
       - MODEL_PATH=/models
     volumes:
-      - "../../../../../models/huggingface.co/LocalModels/Llama-2-7B-Chat-ggml/:/models:rw"
+      #- "../../../../../models/huggingface.co/LocalModels/Llama-2-7B-Chat-ggml/:/models:rw"
       - ../:/app/llama2-webui
     ulimits:
       memlock: 12000000000

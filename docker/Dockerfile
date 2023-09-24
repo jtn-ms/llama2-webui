@@ -30,12 +30,12 @@ RUN git clone https://github.com/jtn-ms/llama2-webui.git /app/llama2-webui
 RUN mkdir /models
 
 # ADD PATH TO YOUR MODEL:
-#COPY ./llama-2-13b-chat.ggmlv3.q2_K.bin ~
+COPY ./llama-2-7b-chat.ggmlv3.q4_0.bin /models
 
 # http exposition
 # http://127.0.0.1:7860/
 
-EXPOSE 7680
+EXPOSE 7860
 #RUN python3 app.py
 
 WORKDIR /app/llama2-webui
