@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  app:
+    image: llama2-webui
+    container_name: llama2-webui-app
+    ports:
+      - "7681:7680"
+    environment:
+      - MODEL_PATH=/models
+    volumes:
+      - "../../models/huggingface.co/LocalModels/Llama-2-7B-Chat-ggml/:/models:rw"
+    ulimits:
+      memlock: 12000000000
