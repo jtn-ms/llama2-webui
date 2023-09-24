@@ -27,7 +27,7 @@ def main():
     parser.add_argument(
         "--share",
         type=bool,
-        default=True,
+        default=False,
         help="Whether to share public for gradio.",
     )
     args = parser.parse_args()
