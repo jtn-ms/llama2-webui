@@ -1,5 +1,5 @@
 build.standalone:
-	# mv ../../../../../models/huggingface.co/LocalModels/Llama-2-7B-Chat-ggml/llama-2-7b-chat.ggmlv3.q4_0.bin .
+	mv ../../../../../models/huggingface.co/LocalModels/Llama-2-7B-Chat-ggml/llama-2-7b-chat.ggmlv3.q4_0.bin .
 	docker build -t llama2-webui .
 	mv llama-2-7b-chat.ggmlv3.q4_0.bin ../../../../../models/huggingface.co/LocalModels/Llama-2-7B-Chat-ggml/
 
@@ -22,7 +22,7 @@ run: run.default
 stop.container:
 	docker container stop llama2-webui-app
 
-
+# after accessing the terminal, simply run python app.py
 access.bash:
 	docker run -dit --name llama2-webui-app -p 80:8080 llama2-webui:latest bash
 	docker container attach llama2-webui-app
@@ -55,3 +55,4 @@ clean.caches:
 chk.all:
 	docker ps -a
 	docker images
+

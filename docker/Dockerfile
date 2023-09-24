@@ -1,6 +1,6 @@
 FROM python:3.10.11
 
-RUN apt update && apt install  -y --no-install-recommends vim
+RUN apt update && apt install  -y --no-install-recommends vim nmap lsof
 
 RUN pip install accelerate==0.21.0 \
                 auto-gptq==0.3.0\
@@ -34,10 +34,10 @@ RUN mkdir /models
 # ADD PATH TO YOUR MODEL:
 COPY ./llama-2-7b-chat.ggmlv3.q4_0.bin /models
 
-# http exposition
+# gradio default port - 7860
 # http://127.0.0.1:7860/
 
-EXPOSE 7860
+EXPOSE 8080
 #RUN python3 app.py
 
 WORKDIR /app/llama2-webui
