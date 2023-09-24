@@ -1,5 +1,7 @@
 FROM python:3.10.11
 
+RUN apt update && apt install vim
+
 RUN pip install accelerate==0.21.0 \
                 auto-gptq==0.3.0\
                 bitsandbytes==0.40.2\

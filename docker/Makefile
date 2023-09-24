@@ -11,7 +11,7 @@ run.compose:
 	docker-compose up
 
 run.standalone:
-	docker run -dit --name llama2-webui-app -p 7861:7860 --restart unless-stopped llama2-webui:latest
+	docker run -dit --name llama2-webui-app -p 80:8080 --restart unless-stopped llama2-webui:latest
 
 run.default: run.standalone
 
@@ -22,7 +22,7 @@ stop.container:
 
 
 access.bash:
-	docker run -dit --name llama2-webui-app -p 7861:7860 llama2-webui:latest bash
+	docker run -dit --name llama2-webui-app -p 80:8080 llama2-webui:latest bash
 	docker container attach llama2-webui-app
 
 create.access.point:
@@ -33,7 +33,7 @@ inspect.network:
 
 inspect.log:
 	docker logs llama2-webui-app
-	
+
 rm.container:
 	docker rm llama2-webui-app
 
