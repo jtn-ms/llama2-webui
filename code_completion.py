@@ -221,7 +221,7 @@ def main():
             ],
             outputs=[output],
         )
-    demo.queue(concurrency_count=16).launch(share=args.share).launch(share=args.share,server_name=args.ipaddr, server_port=args.port)
+    demo.queue(concurrency_count=16).launch(share=args.share,server_name=args.ipaddr, server_port=args.port)
 
 
 if __name__ == "__main__":
