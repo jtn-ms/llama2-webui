@@ -45,6 +45,18 @@ def main():
         default=False,
         help="Whether to share public for gradio.",
     )
+    parser.add_argument(
+        "--ipaddr",
+        type=str,
+        default="0.0.0.0",
+        help="ip address",
+    )
+    parser.add_argument(
+        "--port",
+        type=int,
+        default=8080,
+        help="port",
+    )
     args = parser.parse_args()
 
     llama2_wrapper = LLAMA2_WRAPPER(
@@ -209,7 +221,7 @@ def main():
             ],
             outputs=[output],
         )
-    demo.queue(concurrency_count=16).launch(share=args.share)
+    demo.queue(concurrency_count=16).launch(share=args.share).launch(share=args.share,server_name=args.ipaddr, server_port=args.port)
 
 
 if __name__ == "__main__":
