@@ -29,10 +29,14 @@ RUN mkdir /app
 RUN git clone https://github.com/jtn-ms/llama2-webui.git /app/llama2-webui
 
 # Create the /models directory in the container
-RUN mkdir /models
+#RUN mkdir /models
 
 # ADD PATH TO YOUR MODEL:
-COPY ./llama-2-7b-chat.ggmlv3.q4_0.bin /models
+#COPY ./llama-2-7b-chat.ggmlv3.q4_0.bin /models
+
+RUN mkdir /app/llama2-webui/models
+RUN cd /app/llama2-webui/models && wget --content-disposition https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGML/resolve/main/llama-2-7b-chat.ggmlv3.q4_0.bin
+RUN cd /app/llama2-webui/models && wget --content-disposition https://huggingface.co/TheBloke/CodeLlama-7B-Instruct-GGML/resolve/main/codellama-7b-instruct.ggmlv3.Q4_0.bin
 
 # gradio default port - 7860
 # http://127.0.0.1:7860/
